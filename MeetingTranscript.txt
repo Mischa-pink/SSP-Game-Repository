@@ -1,5 +1,7 @@
 Week 2 Sprint 1
-day 1:
+day 1: De fdd en tdd moeten afzijn zodat we de volgende sprint kunnenn beginnen met het spell.
+En we moeten de user stories maken.
+We gaan nu met zijn alen aan de fdd en tdd werken.
 
 Week 3 Sprint 2
 day 1:

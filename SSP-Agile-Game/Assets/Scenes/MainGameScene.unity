@@ -341,6 +341,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122962513
+--- !u!1 &1661358764
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -350,6 +351,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1122962515}
   - component: {fileID: 1122962514}
+  - component: {fileID: 1661358766}
+  - component: {fileID: 1661358765}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -358,6 +361,7 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!212 &1122962514
+--- !u!212 &1661358765
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
@@ -365,6 +369,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122962513}
+  m_GameObject: {fileID: 1661358764}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -417,12 +422,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!4 &1122962515
+--- !u!4 &1661358766
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122962513}
+  m_GameObject: {fileID: 1661358764}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -438,3 +445,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1122962515}
+  - {fileID: 1661358766}

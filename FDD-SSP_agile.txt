@@ -1,0 +1,6 @@
+FDD SSP game
+2D Top down rpg game. You’re a mage and you must protect your village from enemies by building structures. You must survive as many waves of enemies as possible. At the end of every wave you can choose between boosts or items to get stronger and get further. 
+
+ 
+
+(User stories in GitHub Projects)

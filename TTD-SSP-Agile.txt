@@ -1,0 +1,10 @@
+TDD SSP game
+
+Set up:
+Shared Unity project in the SSP organization
+
+Folder Structure:
+In assed folder: Script Folder, Sprite Folder, Sound folder.
+
+Put variables at the top use camel case sue sensible names use.
+Put comments before committing to the main branch. 

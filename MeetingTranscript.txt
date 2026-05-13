@@ -4,7 +4,7 @@ En we moeten de user stories maken.
 We gaan nu met zijn alen aan de fdd en tdd werken.
 
 Week 3 Sprint 2
-day 1:
+day 1: We have to finish converting some more User Stories to ToDo's. After that we can start up the Unity project and get started with the basic game loop. In the basic game loop we'll get started with movement and menu's.
 
 day 2:
 

@@ -9,7 +9,7 @@ day 1: We have to finish converting some more User Stories to ToDo's. After that
 day 2:
 
 Week 4 Sprint 2
-day 1:
+day 1: We'll finish making some of the smaller tasks such as the Pause Menu and make more User Stories into ToDo's. Our current game loop will consist of the menu's and a character you're able to move.
 
 day 2:
 

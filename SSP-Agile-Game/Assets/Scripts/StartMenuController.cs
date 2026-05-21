@@ -9,7 +9,6 @@ public class StartMenuController : MonoBehaviour
     public void OnStartClick()
     {
         SceneManager.LoadScene("MainGameScene");
-        Debug.Log("start button pressed");
     }
 
     public void OnExitClick()
@@ -18,6 +17,5 @@ public class StartMenuController : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
-        Debug.Log("exit button pressed");
     }
 }

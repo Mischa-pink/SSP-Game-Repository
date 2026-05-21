@@ -11,7 +11,7 @@ day 2:
 Week 4 Sprint 2
 day 1: We'll finish making some of the smaller tasks such as the Pause Menu and make more User Stories into ToDo's. Our current game loop will consist of the menu's and a character you're able to move.
 
-day 2:
+day 2: We'll merge the player movement also get started on the following: Grid System, Enemy AI, Game UI(currency) and fix scene conflicts. Game loop will have a moving player, menu's and a currency system.
 
 Week 5 Sprint 3
 day 1:

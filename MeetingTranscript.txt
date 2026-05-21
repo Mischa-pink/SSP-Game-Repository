@@ -13,6 +13,11 @@ day 1: We'll finish making some of the smaller tasks such as the Pause Menu and 
 
 day 2: We'll merge the player movement also get started on the following: Grid System, Enemy AI, Game UI(currency) and fix scene conflicts. Game loop will have a moving player, menu's and a currency system.
 
+Tips:
+-Keep going on like this!
+-Don't be afraid to ask for help
+-Make sure everyone has something to do
+
 Week 5 Sprint 3
 day 1:
 

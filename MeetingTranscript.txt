@@ -21,6 +21,19 @@ Tips:
 Week 5 Sprint 3
 day 1:
 
+we will continue with the grid system, menu UI, enemy behaviour and enemy sprites. 
+we will begin with building sprites.
+
+
+for the end of this sprint we aim to get the following done:
+-tile system finished
+-all building sprites are done and ready.
+-have enemy behaviour finished.
+-finish menus.
+
+
+
+
 day 2:
 
 Week 6 Sprint 3

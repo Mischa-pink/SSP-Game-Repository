@@ -32,9 +32,27 @@ for the end of this sprint we aim to get the following done:
 -finish menus.
 
 
-
-
 day 2:
+
+finished:
+-tile system
+
+ongoing:
+-menu sprite
+-terrain sprites
+-enemy behaviour 
+
+started/starting:
+-player sprites
+-building sprites
+
+the person responsible for the building worked on the terrain sprites instead  and aims to get those done this lesson and start with the buildings.
+the person resposible for the tile system fllr the buildings finished it and commited it to main.
+we will continue with the  getting the enemy behaviour AI and the terrain variations madde and aim to finish those at the end of this lesson.
+
+
+
+
 
 Week 6 Sprint 3
 day 1:

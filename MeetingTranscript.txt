@@ -55,7 +55,16 @@ we will continue with the  getting the enemy behaviour AI and the terrain variat
 
 
 Week 6 Sprint 3
-day 1:
+Finished:
+-The menu sprite, Goblin sprite and mountain terrain sprite
+
+ongoing: 
+-Enemy ai, Menu, more sprites for a magic tower, player animation 
+
+Starting: 
+-Small Tutorial
+
+We are going to keep working on the enemy ai sprite and player animation and a small tutorial is beng added.
 
 day 2:
 

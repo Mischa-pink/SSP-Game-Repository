@@ -8,7 +8,7 @@ public class DialogueScript : MonoBehaviour
     public TextMeshProUGUI textObject;
     public string[] dialogueText;
     public float textSpeed;
-    private int index;
+    public int index;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +22,7 @@ public class DialogueScript : MonoBehaviour
     {
         if (Keyboard.current.fKey.wasPressedThisFrame)
         {
-            if(textObject.text == dialogueText[index])
+            if (textObject.text == dialogueText[index] && index != 3 && index != 4 && index != 6 && index != 7 )
             {
                 NextLine();
             }
@@ -32,6 +32,18 @@ public class DialogueScript : MonoBehaviour
                 textObject.text = dialogueText[index];
             }
         }
+        //if (Keyboard.current.fKey.wasPressedThisFrame)
+        //{
+        //    if(textObject.text == dialogueText[index])
+        //    {
+        //        NextLine();
+        //    }
+        //    else
+        //    {
+        //        StopAllCoroutines();
+        //        textObject.text = dialogueText[index];
+        //    }
+        //}
     }
     void StartDialogue()
     {
@@ -47,9 +59,11 @@ public class DialogueScript : MonoBehaviour
         }
 
     }
-
-    void NextLine()
+   
+    public void NextLine()
     {
+        StopAllCoroutines();
+        Debug.Log("next line is called");
         if (index < dialogueText.Length - 1)
         {
             index++;

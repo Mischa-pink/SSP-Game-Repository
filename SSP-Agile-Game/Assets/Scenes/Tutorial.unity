@@ -199,7 +199,7 @@ MonoBehaviour:
   player: {fileID: 0}
   building:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   dialogueObject: {fileID: 1347833234}
 --- !u!212 &137111012
 SpriteRenderer:
@@ -11920,7 +11920,7 @@ GameObject:
   - component: {fileID: 873349000}
   - component: {fileID: 873348999}
   - component: {fileID: 873348998}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12761,7 +12761,7 @@ MonoBehaviour:
   player: {fileID: 1091188999}
   building:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   dialogueObject: {fileID: 1347833234}
 --- !u!212 &1357624971
 SpriteRenderer:

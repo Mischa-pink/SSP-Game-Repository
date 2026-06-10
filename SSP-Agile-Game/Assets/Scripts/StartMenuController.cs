@@ -8,7 +8,7 @@ public class StartMenuController : MonoBehaviour
 {
     public void OnStartClick()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("MainGameScene-Joshua"); //currently to demo scene, will change later
     }
 
     public void OnExitClick()

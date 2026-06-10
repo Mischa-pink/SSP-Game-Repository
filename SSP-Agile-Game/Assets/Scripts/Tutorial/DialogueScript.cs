@@ -22,7 +22,7 @@ public class DialogueScript : MonoBehaviour
     {
         if (Keyboard.current.fKey.wasPressedThisFrame)
         {
-            if (textObject.text == dialogueText[index] && index != 3 && index != 4 && index != 6 && index != 7 )
+            if (textObject.text == dialogueText[index] && index != 3 && index != 5 && index != 6 && index != 7 )
             {
                 NextLine();
             }

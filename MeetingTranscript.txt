@@ -69,7 +69,7 @@ We are going to keep working on the enemy ai sprite and player animation and a s
 day 2:
 
 Week 7 Sprint 4
-day 1:
+day 1: We will be working on the buiding placement, Tutorial logic, UI and wave based enemy spawning.
 
 day 2:
 

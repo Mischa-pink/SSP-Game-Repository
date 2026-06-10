@@ -1,16 +1,20 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 
 public class EnemyStatsAndEvents : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int health;
+    public int maxHealth;
+    public int attackDamage;
+    public int attackRange;
+    public int attackCooldown; //waittime inbetween attacks
+
+    public void DistanceCheck()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
 }

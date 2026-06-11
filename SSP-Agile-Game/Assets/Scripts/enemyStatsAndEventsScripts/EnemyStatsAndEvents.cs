@@ -9,9 +9,10 @@ public class EnemyStatsAndEvents : MonoBehaviour
     public int attackRange;
     public int attackCooldown; //waittime inbetween attacks
 
+   
     public void DistanceCheck()
     {
-
+        
     }
 
 

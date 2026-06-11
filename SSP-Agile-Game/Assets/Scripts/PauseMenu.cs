@@ -8,12 +8,22 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // If the escapekey is pressed, pause the game
+
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            container.SetActive(true);
-            Time.timeScale = 0;
+            if (container.activeSelf)
+            {
+                container.SetActive(false);
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                container.SetActive(true);
+                Time.timeScale = 0f;
+            }
         }
     }
+
 
     public void ResumeButton()
     {

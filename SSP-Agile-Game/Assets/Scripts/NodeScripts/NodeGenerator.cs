@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class NodeGenerator : MonoBehaviour
 {
+    public static NodeGenerator Instance { get; private set; }
     // Assign your Tilemaps in the Inspector (e.g., Ground and Objects)
     public Tilemap[] tilemaps;
 
@@ -18,14 +19,26 @@ public class NodeGenerator : MonoBehaviour
     // Base values for building tiles
     public Dictionary<string, float> buildingBaseValues = new Dictionary<string, float>
     {
-        { "basic_house_1_0", 4f },
-        { "basic_house_1_1", 4f },
-        { "basic_house_1_2", 4f },
-        { "basic_house_1_3", 4f }
+        { "basic_house_1_0", 999f },
+        { "basic_house_1_1", 999f },
+        { "basic_house_1_2", 999f },
+        { "basic_house_1_3", 999f }
     };
 
     // Stores all generated nodes (position -> node)
     public Dictionary<Vector3Int, TileNode> nodes = new Dictionary<Vector3Int, TileNode>();
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {

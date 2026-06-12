@@ -15910,7 +15910,7 @@ MonoBehaviour:
   Enemy: {fileID: 4095924100087379583, guid: cf59fc5ecc9ac71468766754c96f4e60, type: 3}
   spawnRange: {x: 3, y: 9}
   spawnOffset: {x: 3, y: 1}
-  AmountOfEnemySpawns: 50
+  AmountOfEnemySpawns: 5000
 --- !u!4 &673683119
 Transform:
   m_ObjectHideFlags: 0

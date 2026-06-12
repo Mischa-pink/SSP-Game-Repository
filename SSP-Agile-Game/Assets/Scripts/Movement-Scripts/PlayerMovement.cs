@@ -11,8 +11,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDir;
     public float playerSpeed;
 
+    private Animator animator;
+
     private void OnEnable()
     {
+        // Get Animator
+        animator = GetComponent<Animator>();
+
         // Get PlayerInput Component
         input = GetComponent<PlayerInput>();
 
@@ -34,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
         moveDir = moveAction.ReadValue<Vector2>();
         transform.position += (Vector3)moveDir.normalized * playerSpeed * Time.deltaTime;
 
+        // Animation for the directions
+        animator.SetBool("WalkNorth", moveDir.y > 0);
+        animator.SetBool("WalkEast", moveDir.x > 0);
+        animator.SetBool("WalkSouth", moveDir.y < 0);
+        animator.SetBool("WalkWest", moveDir.x < 0);
 
     }
 }

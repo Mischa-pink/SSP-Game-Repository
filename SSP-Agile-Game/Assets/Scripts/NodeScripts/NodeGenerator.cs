@@ -22,7 +22,15 @@ public class NodeGenerator : MonoBehaviour
         { "basic_house_1_0", 999f },
         { "basic_house_1_1", 999f },
         { "basic_house_1_2", 999f },
-        { "basic_house_1_3", 999f }
+        { "basic_house_1_3", 999f },
+        { "ShootingTowerTiles_0", 999f },
+        { "ShootingTowerTiles_1", 999f },
+        { "ShootingTowerTiles_2", 999f },
+        { "ShootingTowerTiles_3", 999f },
+        { "ShootingTowerTiles_4", 999f },
+        { "ShootingTowerTiles_5", 999f },
+        { "ShootingTowerTiles_6", 999f },
+        { "ShootingTowerTiles_7", 999f }
     };
 
     // Stores all generated nodes (position -> node)

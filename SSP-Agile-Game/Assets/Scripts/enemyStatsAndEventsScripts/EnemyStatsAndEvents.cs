@@ -5,7 +5,7 @@ public class EnemyStatsAndEvents : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth = 100;
-    
+    public int attackDamage = 10;
 
     void Start()
     {

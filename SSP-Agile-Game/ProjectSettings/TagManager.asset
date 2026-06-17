@@ -32,8 +32,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - TowerLayer
+  - ProjectileLayer
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3727306211
+    locked: 0
+  - name: Projectile
+    uniqueID: 2020091159
     locked: 0
   m_RenderingLayers:
   - Default

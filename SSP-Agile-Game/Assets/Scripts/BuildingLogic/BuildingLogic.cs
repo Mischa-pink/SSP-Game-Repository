@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BuildingLogic : MonoBehaviour
 {
-    public int towerRange;
+    public float towerRange = 5f;
     public int towerHealth;
 
     public float distanceTimer;
@@ -25,7 +25,7 @@ public class BuildingLogic : MonoBehaviour
             {
                 float distance = Vector2.Distance(transform.position, enemy.transform.position);
 
-                if (distance <= 5f)
+                if (distance <= towerRange)
                 {
                     if (distance < closestDistance)
                     {
@@ -37,12 +37,12 @@ public class BuildingLogic : MonoBehaviour
 
             if (closestEnemy != null)
             {
-                Debug.Log("Closest enemy: " + closestEnemy.name);
+                //Debug.Log("Closest enemy: " + closestEnemy.name);
 
                 Vector2 direction =
                     (closestEnemy.transform.position - transform.position).normalized;
 
-                Debug.Log("Direction: " + direction);
+                //Debug.Log("Direction: " + direction);
                 Instantiate(
                 projectile,
                 transform.position,

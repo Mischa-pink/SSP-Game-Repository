@@ -4,11 +4,15 @@ public class ProjectileLogic : MonoBehaviour
 {
     GameObject closestEnemy = null;
     float closestDistance = Mathf.Infinity;
+
     Vector2 direction;
     private Rigidbody2D rb;
     public float speed = 5f;
-    public LayerMask enemy;
+    public float range = 100f;
 
+    public LayerMask enemyLayer;
+
+    private int damage = 15;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +23,7 @@ public class ProjectileLogic : MonoBehaviour
         {
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
 
-            if (distance <= 5f)
+            if (distance <= range)
             {
                 if (distance < closestDistance)
                 {
@@ -37,32 +41,54 @@ public class ProjectileLogic : MonoBehaviour
             direction =
                 (closestEnemy.transform.position - transform.position).normalized; // target enemy location from current gameobject
 
-            Debug.Log(closestEnemy);
-            Debug.Log("Direction: " + direction);
+            //Debug.Log(closestEnemy);
+            //Debug.Log("Direction: " + direction);
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // turns cordinate difference into a rotation
             transform.rotation = Quaternion.Euler(0, 0, angle); // turns the object based on rotation
             
 
             
-            Debug.Log("velocity: " + rb.linearVelocity);
+            //Debug.Log("velocity: " + rb.linearVelocity);
         }
-        ;
+        Destroy(gameObject, range);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
 
-        transform.position += (Vector3)direction * 5f * Time.deltaTime; // SHOULD move the object to the target
+        rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime); // SHOULD move the object to the target
 
         
     }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("collision detected");
+    //    if (collision.gameObject.layer == enemyLayer)
+    //    {
+    //        Debug.Log("enemy has been hit");
+    //        collision.gameObject.GetComponent<EnemyStatsAndEvents>().isHit(damage);
+    //    }
+    //}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == enemy)
+        //Debug.Log($"Hit object: {collision.gameObject.name}");
+        //Debug.Log($"Tag: {collision.gameObject.tag}");
+        
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-
+            //Debug.Log("enemy has been hit");
+            collision.gameObject.GetComponent<EnemyStatsAndEvents>().isHit(damage);
+            Destroy(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+            
     }
+
+
 }

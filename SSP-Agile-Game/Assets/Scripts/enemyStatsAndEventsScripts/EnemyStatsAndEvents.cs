@@ -3,19 +3,37 @@ using UnityEngine;
 
 public class EnemyStatsAndEvents : MonoBehaviour
 {
-    public int health;
-    public int maxHealth;
-    public int attackDamage;
-    public int attackRange;
-    public int attackCooldown; //waittime inbetween attacks
+    public int currentHealth;
+    public int maxHealth = 100;
+    
 
-   
-    public void DistanceCheck()
+    void Start()
     {
         
+         currentHealth = maxHealth;
+        
     }
+   
+
+    public void isHit(int damage)
+    {
+        Debug.Log("enemy hit, dealt " + damage + " damage");
+
+        if (currentHealth >= 0)
+        {
+            currentHealth -= damage;
 
 
+        }
+        else
+        {
+            Debug.Log("meow, enemy died");
+            
+            Destroy(this.gameObject);
+           
+        }
+
+    }
 
 
 }

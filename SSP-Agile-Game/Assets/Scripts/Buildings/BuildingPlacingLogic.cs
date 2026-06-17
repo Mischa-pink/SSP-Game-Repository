@@ -8,6 +8,7 @@ public class BuildingPlacingLogic : MonoBehaviour
     [SerializeField] PlayerInput input;
     [SerializeField] Tilemap tileMap;
     [SerializeField] MoneyHolder moneyHolder;
+    [SerializeField] GameObject shootPosHolder;
     private InputAction click;
 
     private Vector3Int worldCell;
@@ -23,6 +24,8 @@ public class BuildingPlacingLogic : MonoBehaviour
     public TileBase[] tiles;
 
     public List<Vector3Int> placedTiles = new List<Vector3Int>();
+
+    [SerializeField] GameObject shootingObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -40,6 +43,8 @@ public class BuildingPlacingLogic : MonoBehaviour
         if (click.WasPressedThisFrame())
         {
             PlaceBuildingOnGrid(GetMouseGridPos());
+            GameObject shootPos = Instantiate(shootingObject, transform.position, Quaternion.identity);
+            shootPos.transform.SetParent(shootPosHolder.transform);
             gameObject.SetActive(false);
         }
 

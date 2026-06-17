@@ -5,51 +5,47 @@ using UnityEngine.Windows;
 
 public class EnemySpawningScript : MonoBehaviour
 {
-    public GameObject Enemy; 
-    public Vector2 spawnRange = new Vector2(5f, 5f); 
+    public GameObject Enemy;
+    public Vector2 spawnRange = new Vector2(5f, 5f);
     public Vector2 spawnOffset = new Vector2(2f, 1f);
     public int AmountOfEnemySpawns = 3;
-    private int minDistanceBetweenEnemies = 1;
-
+    public float minDistanceBetweenEnemies = 1f; // Made public for easier tuning
 
     private void Start()
     {
-
-
         Vector2 spawnPosition = (Vector2)transform.position + spawnOffset;
-        SpawnAtPosition(spawnPosition, AmountOfEnemySpawns);
+        //SpawnAtPosition(spawnPosition, AmountOfEnemySpawns);
     }
 
-    public void SpawnAtPosition(Vector2 position, int AmountOfEnemySpawns)
+    public void SpawnAtPosition(Vector2 center, int amountOfEnemySpawns)
     {
         List<Vector2> spawnedPositions = new List<Vector2>();
 
-        float MaxEnemyLocationsFloat = Vector2.Dot(spawnRange, spawnRange);
-        Debug.Log($"MaxEnemyLocationsFloat: {MaxEnemyLocationsFloat}");
+        // Calculate the approximate maximum number of enemies that can fit in the spawn range
+        // This is a rough estimate based on the area and minimum distance
+        float spawnArea = spawnRange.x * spawnRange.y;
+        float minAreaPerEnemy = minDistanceBetweenEnemies * minDistanceBetweenEnemies;
+        int maxEnemyLocations = Mathf.FloorToInt(spawnArea / minAreaPerEnemy);
 
-        // Convert float to int (rounded)
-        int MaxEnemyLocations = Mathf.RoundToInt(MaxEnemyLocationsFloat);
-        Debug.Log($"Rounded to int: {MaxEnemyLocations}");
+        // Clamp the number of enemies to spawn
+        amountOfEnemySpawns = Mathf.Min(amountOfEnemySpawns, maxEnemyLocations);
 
-        if (AmountOfEnemySpawns >= MaxEnemyLocations)
-        {
-            AmountOfEnemySpawns = MaxEnemyLocations;
-        }
-
-        for (int i = 0; i < AmountOfEnemySpawns; ++i)
+        for (int i = 0; i < amountOfEnemySpawns; ++i)
         {
             Vector2 randomPosition;
             bool positionIsValid;
+            int attempts = 0;
+            const int maxAttempts = 100; // Prevent infinite loops
 
-            // Try to find a valid random position
             do
             {
+                // Generate a random position within the spawn range around the center
                 randomPosition = new Vector2(
-                    Random.Range(transform.position.x - spawnRange.x, transform.position.x + spawnRange.x),
-                    Random.Range(transform.position.y - spawnRange.y, transform.position.y + spawnRange.y)
+                    Random.Range(center.x - spawnRange.x, center.x + spawnRange.x),
+                    Random.Range(center.y - spawnRange.y, center.y + spawnRange.y)
                 );
 
-                // Check if the position is already taken
+                // Check if the position is valid
                 positionIsValid = true;
                 foreach (Vector2 spawnedPos in spawnedPositions)
                 {
@@ -59,85 +55,31 @@ public class EnemySpawningScript : MonoBehaviour
                         break;
                     }
                 }
-            }
-            while (!positionIsValid);
 
-            // Spawn the enemy
-            Instantiate(Enemy, randomPosition, Quaternion.identity);
-            spawnedPositions.Add(randomPosition);
+                attempts++;
+            }
+            while (!positionIsValid && attempts < maxAttempts);
+
+            // If a valid position was found, spawn the enemy
+            if (positionIsValid)
+            {
+                Instantiate(Enemy, randomPosition, Quaternion.identity);
+                spawnedPositions.Add(randomPosition);
+            }
+            else
+            {
+                Debug.LogWarning($"Failed to find a valid position for enemy {i} after {maxAttempts} attempts.");
+                break; // Stop spawning if no valid position is found
+            }
         }
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Vector2 center = transform.position;
+        Vector2 center = (Vector2)transform.position + spawnOffset;
 
-        Gizmos.DrawLine(
-            new Vector2(center.x - spawnRange.x, center.y - spawnRange.y),
-            new Vector2(center.x + spawnRange.x, center.y - spawnRange.y)
-        );
-        Gizmos.DrawLine(
-            new Vector2(center.x + spawnRange.x, center.y - spawnRange.y),
-            new Vector2(center.x + spawnRange.x, center.y + spawnRange.y)
-        );
-        Gizmos.DrawLine(
-            new Vector2(center.x + spawnRange.x, center.y + spawnRange.y),
-            new Vector2(center.x - spawnRange.x, center.y + spawnRange.y)
-        );
-        Gizmos.DrawLine(
-            new Vector2(center.x - spawnRange.x, center.y + spawnRange.y),
-            new Vector2(center.x - spawnRange.x, center.y - spawnRange.y)
-        );
+        // Draw a rectangle representing the spawn range
+        Gizmos.DrawWireCube(center, spawnRange);
     }
-
-    //public void SpawnAtPosition(Vector2 position, int AmountOfEnemySpawns)
-    //{
-    //    List<Vector2> spawnedPositions = new List<Vector2>();
-
-    //    float MaxEnemyLocationsFloat = Vector2.Dot(spawnRange, spawnRange);
-    //    Debug.Log($"{MaxEnemyLocationsFloat}");
-
-    //    if (float.TryParse(MaxEnemyLocationsFloat, out MaxEnemyLocationsF))
-    //    {
-    //        int intValue = Mathf.RoundToInt(floatValue); // Rounds to nearest int
-    //        Debug.Log($"Rounded to int: {intValue}"); // Output: 4
-    //    }
-
-    //    if (AmountOfEnemySpawns >= MaxEnemyLocations)
-    //    {
-    //        AmountOfEnemySpawns = MaxEnemyLocations;
-    //    }
-
-    //    for (int i = 0; i < AmountOfEnemySpawns; ++i)
-    //    {
-    //        Vector2 randomPosition;
-    //        bool positionIsValid;
-
-    //        // Try to find a valid random position
-    //        do
-    //        {
-    //            randomPosition = new Vector2(
-    //                Random.Range(transform.position.x - spawnRange.x, transform.position.x + spawnRange.x),
-    //                Random.Range(transform.position.y - spawnRange.y, transform.position.y + spawnRange.y)
-    //            );
-
-    //            // Check if the position is already taken
-    //            positionIsValid = true;
-    //            foreach (Vector2 spawnedPos in spawnedPositions)
-    //            {
-    //                if (Vector2.Distance(randomPosition, spawnedPos) < minDistanceBetweenEnemies)
-    //                {
-    //                    positionIsValid = false;
-    //                    break;
-    //                }
-    //            }
-    //        }
-    //        while (!positionIsValid);
-
-    //        // Spawn the enemy
-    //        Instantiate(Enemy, randomPosition, Quaternion.identity);
-    //        spawnedPositions.Add(randomPosition);
-    //    }
-    //}
 }

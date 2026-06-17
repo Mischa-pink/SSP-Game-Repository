@@ -347,6 +347,37 @@ Transform:
   - {fileID: 427007248}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &407654939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407654940}
+  m_Layer: 0
+  m_Name: ShootPosHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407654940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407654939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.98899, y: 4.93238, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427007247
 GameObject:
   m_ObjectHideFlags: 0
@@ -16702,6 +16733,8 @@ MonoBehaviour:
   input: {fileID: 1091189004}
   tileMap: {fileID: 427007250}
   moneyHolder: {fileID: 1964852181}
+  shootPosPrefab: {fileID: 5127446264818296101, guid: bedd4026b4653924495b760400661b28, type: 3}
+  shootHolder: {fileID: 407654939}
   buildingSizeX: 2
   buildingSizeY: 4
   curserOffsetX: -2
@@ -16837,7 +16870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawningScript
   Enemy: {fileID: 4095924100087379583, guid: cf59fc5ecc9ac71468766754c96f4e60, type: 3}
   spawnRange: {x: 6, y: 20}
-  spawnOffset: {x: 0, y: 0}
+  spawnOffset: {x: -30, y: 0}
   AmountOfEnemySpawns: 150
   minDistanceBetweenEnemies: 1
 --- !u!4 &1079788506
@@ -18237,5 +18270,6 @@ SceneRoots:
   - {fileID: 1964852182}
   - {fileID: 328958345}
   - {fileID: 1743558508}
-  - {fileID: 996840124}
   - {fileID: 1079788506}
+  - {fileID: 407654940}
+  - {fileID: 996840124}

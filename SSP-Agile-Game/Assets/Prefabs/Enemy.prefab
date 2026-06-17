@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4470832591536396661}
   - component: {fileID: 7279004840592644658}
   - component: {fileID: -9119005721367434755}
-  m_Layer: 7
+  - component: {fileID: 3201217444768813305}
+  m_Layer: 10
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   nodeGenerator: {fileID: 0}
-  moveSpeed: 5
+  moveSpeed: 3
   targetPosition: {x: -13, y: 0, z: 0}
 --- !u!50 &7279004840592644658
 Rigidbody2D:
@@ -117,7 +118,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4095924100087379583}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -172,3 +173,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.484375
+--- !u!114 &3201217444768813305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095924100087379583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9dfd300deb7d7459d2c94e4183bd74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsAndEvents
+  currentHealth: 0
+  maxHealth: 100
+  attackDamage: 10

@@ -14,10 +14,10 @@ public class EnemySpawningScript : MonoBehaviour
 
     private void Start()
     {
-        
-        
-        //Vector2 spawnPosition = (Vector2)transform.position + spawnOffset;
-        //SpawnAtPosition(spawnPosition, AmountOfEnemySpawns);
+
+
+        Vector2 spawnPosition = (Vector2)transform.position + spawnOffset;
+        SpawnAtPosition(spawnPosition, AmountOfEnemySpawns);
     }
 
     public void SpawnAtPosition(Vector2 position, int AmountOfEnemySpawns)

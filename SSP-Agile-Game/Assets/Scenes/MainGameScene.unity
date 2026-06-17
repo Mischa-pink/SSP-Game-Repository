@@ -17414,7 +17414,6 @@ MonoBehaviour:
   input: {fileID: 1091189004}
   tileMap: {fileID: 427007250}
   moneyHolder: {fileID: 1964852181}
-  shootPosHolder: {fileID: 2089277906}
   buildingSizeX: 2
   buildingSizeY: 4
   curserOffsetX: -2
@@ -17430,7 +17429,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b0bd8a52cb55004e86667f8e16cb6a7, type: 2}
   - {fileID: 11400000, guid: b4db03df726dbaa44be8d4d67f589e7c, type: 2}
   placedTiles: []
-  shootingObject: {fileID: 3476062399592065878, guid: 6a17322ec2ae74543944663568b117dd, type: 3}
 --- !u!212 &996840123
 SpriteRenderer:
   serializedVersion: 2
@@ -17520,7 +17518,7 @@ GameObject:
   - component: {fileID: 1091189007}
   - component: {fileID: 1091189009}
   - component: {fileID: 1091189008}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17725,7 +17723,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1000
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -18599,10 +18597,9 @@ GameObject:
   - component: {fileID: 1560974230}
   - component: {fileID: 1560974229}
   - component: {fileID: 1560974233}
-  - component: {fileID: 1560974234}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18755,7 +18752,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 1000
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -18769,21 +18766,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1560974234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560974228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9dfd300deb7d7459d2c94e4183bd74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyStatsAndEvents
-  currentHealth: 0
-  maxHealth: 100
-  attackDamage: 10
 --- !u!1 &1743558507
 GameObject:
   m_ObjectHideFlags: 0
@@ -18951,37 +18933,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043753439}
   m_CullTransparentMesh: 1
---- !u!1 &2089277906
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2089277907}
-  m_Layer: 0
-  m_Name: ShootingPosHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2089277907
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089277906}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.98899, y: 4.93238, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -18997,4 +18948,3 @@ SceneRoots:
   - {fileID: 1743558508}
   - {fileID: 1560974232}
   - {fileID: 996840124}
-  - {fileID: 2089277907}

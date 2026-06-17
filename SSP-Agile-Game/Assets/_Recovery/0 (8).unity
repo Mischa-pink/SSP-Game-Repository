@@ -18530,12 +18530,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   input: {fileID: 1091189004}
   tileMap: {fileID: 427007250}
-  moneyHolder: {fileID: 1964852181}
   buildingSizeX: 2
   buildingSizeY: 4
   curserOffsetX: -2
   curserOffsetY: 2
-  buildingPrice: 500
   tiles:
   - {fileID: 11400000, guid: 1065c73cad81093419241a03a3a91adc, type: 2}
   - {fileID: 11400000, guid: 24bbf605963cde5489c9318e1efe0272, type: 2}
@@ -18892,7 +18890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 500$
+  m_text: 600$
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         // If the main menu button is pressed, go to the main menu
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Start Menu-Joshua"); //currently to demo scene, will change later
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Start Menu"); //currently to demo scene, will change later
         Time.timeScale = 1;
 
 

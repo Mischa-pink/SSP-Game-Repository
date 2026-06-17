@@ -8,6 +8,9 @@ public class BuildingPlacingLogic : MonoBehaviour
     [SerializeField] PlayerInput input;
     [SerializeField] Tilemap tileMap;
     [SerializeField] MoneyHolder moneyHolder;
+    [SerializeField] GameObject shootPosPrefab;
+    [SerializeField] GameObject shootHolder;
+
     private InputAction click;
 
     private Vector3Int worldCell;
@@ -40,6 +43,9 @@ public class BuildingPlacingLogic : MonoBehaviour
         if (click.WasPressedThisFrame())
         {
             PlaceBuildingOnGrid(GetMouseGridPos());
+            GameObject shootPos = Instantiate(shootPosPrefab, transform.position, Quaternion.identity);
+            shootPos.transform.SetParent(shootHolder.transform);
+
             gameObject.SetActive(false);
         }
 

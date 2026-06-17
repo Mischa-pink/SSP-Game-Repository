@@ -8,7 +8,7 @@ public class ProjectileLogic : MonoBehaviour
     Vector2 direction;
     private Rigidbody2D rb;
     public float speed = 5f;
-    public float range = 100f;
+    public float range = 3f;
 
     public LayerMask enemyLayer;
 
@@ -81,12 +81,11 @@ public class ProjectileLogic : MonoBehaviour
         {
             //Debug.Log("enemy has been hit");
             collision.gameObject.GetComponent<EnemyStatsAndEvents>().isHit(damage);
-            Destroy(gameObject);
+           
         }
-        else
-        {
+        
             Destroy(gameObject);
-        }
+        
             
     }
 

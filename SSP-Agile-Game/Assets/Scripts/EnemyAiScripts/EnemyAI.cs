@@ -14,6 +14,8 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+        nodeGenerator = NodeGenerator.Instance;
+
         if (nodeGenerator.tilemaps.Length > 0)
             tilemap = nodeGenerator.tilemaps[0];
 

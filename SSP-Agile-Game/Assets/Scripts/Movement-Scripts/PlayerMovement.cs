@@ -36,9 +36,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Get direction and move to direction
-        moveDir = moveAction.ReadValue<Vector2>();
+        moveDir = moveAction.ReadValue<Vector2>();      
         transform.position += (Vector3)moveDir.normalized * playerSpeed * Time.deltaTime;
-
+       
         // Animation for the directions
         animator.SetBool("WalkNorth", moveDir.y > 0);
         animator.SetBool("WalkEast", moveDir.x > 0);

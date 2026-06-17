@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - projectile
   layers:
   - Default
   - TransparentFX
@@ -15,6 +17,7 @@ TagManager:
   - OntopOfGround
   - 
   - 
+  - enemy
   - 
   - 
   - 
@@ -29,9 +32,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - TowerLayer
+  - ProjectileLayer
   - 
   - 
   - 
@@ -41,8 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Buildings
+    uniqueID: 1448449567
+    locked: 0
   - name: Player
     uniqueID: 3727306211
+    locked: 0
+  - name: Projectile
+    uniqueID: 2020091159
     locked: 0
   m_RenderingLayers:
   - Default

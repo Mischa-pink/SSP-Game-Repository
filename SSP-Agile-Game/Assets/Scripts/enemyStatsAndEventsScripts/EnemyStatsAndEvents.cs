@@ -7,17 +7,19 @@ public class EnemyStatsAndEvents : MonoBehaviour
     public int maxHealth = 100;
     public int attackDamage = 10;
 
+    private int amountOfKills = 0; 
+    
+    
+
     void Start()
     {
-        
-         currentHealth = maxHealth;
-        
+        currentHealth = maxHealth;
     }
    
 
     public void isHit(int damage)
     {
-        Debug.Log("enemy hit, dealt " + damage + " damage");
+        //Debug.Log("enemy hit, dealt " + damage + " damage");
 
         if (currentHealth >= 0)
         {
@@ -25,12 +27,21 @@ public class EnemyStatsAndEvents : MonoBehaviour
 
 
         }
-        else
-        {
-            Debug.Log("meow, enemy died");
+        //old death code
+        //else
+        //{
+        //    //Debug.Log("meow, enemy died");
             
-            Destroy(this.gameObject);
-           
+        //    Destroy(this.gameObject);
+
+        //}
+
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance.AddKill();
+            GameManager.Instance.EnemyDied();
+            Destroy(gameObject);
+            
         }
 
     }

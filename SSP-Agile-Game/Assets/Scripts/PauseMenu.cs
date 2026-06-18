@@ -24,7 +24,6 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-
     public void ResumeButton()
     {
         // If the resume button is pressed, unpause the game

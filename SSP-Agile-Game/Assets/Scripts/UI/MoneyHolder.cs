@@ -7,7 +7,7 @@ public class MoneyHolder : MonoBehaviour
 
     void Start()
     {
-        moneyAmount = 2000;
+        moneyAmount = 1500;
     }
 
     public void AddMoney(int addAmount)

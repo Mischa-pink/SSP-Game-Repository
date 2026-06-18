@@ -4,6 +4,14 @@ using System.Collections.Generic;
 
 public class NodeGenerator : MonoBehaviour
 {
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnWaveStarted.RemoveListener(GenerateNodes);
+        }
+    }
+
     public static NodeGenerator Instance { get; private set; }
     // Assign your Tilemaps in the Inspector (e.g., Ground and Objects)
     public Tilemap[] tilemaps;
@@ -50,43 +58,46 @@ public class NodeGenerator : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.OnWaveStarted.AddListener(GenerateNodes);
         GenerateNodes(); // Generate nodes when the game starts
         //DebugPrintNodes(); // Optional: Print node data to the Console
         ColorTilesByValue(); // Optional: Color tiles to visualize values
     }
 
-    public void DebugPrintTileNames()
-    {
-        Debug.Log("=== TILE NAMES DEBUG ===");
-        foreach (Tilemap tilemap in tilemaps)
-        {
-            foreach (var pos in tilemap.cellBounds.allPositionsWithin)
-            {
-                if (tilemap.HasTile(pos))
-                {
-                    TileBase tile = tilemap.GetTile(pos);
-                    Debug.Log($"Tile at {pos}: {tile.name}");
-                }
-            }
-        }
-        Debug.Log("========================");
-    }
+    //UNDEBUG THIS LATER
 
-    public void DebugPrintNodes()
-    {
-        Debug.Log("=== NODES DEBUG ===");
-        foreach (var kvp in nodes)
-        {
-            Vector3Int pos = kvp.Key;
-            TileNode node = kvp.Value;
-            Debug.Log(
-                $"Node at {pos}: " +
-                $"Tile = {node.tile.name}, " +
-                $"Value = {node.value}"
-            );
-        }
-        Debug.Log("===================");
-    }
+    //public void DebugPrintTileNames()
+    //{
+    //    Debug.Log("=== TILE NAMES DEBUG ===");
+    //    foreach (Tilemap tilemap in tilemaps)
+    //    {
+    //        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
+    //        {
+    //            if (tilemap.HasTile(pos))
+    //            {
+    //                TileBase tile = tilemap.GetTile(pos);
+    //                Debug.Log($"Tile at {pos}: {tile.name}");
+    //            }
+    //        }
+    //    }
+    //    Debug.Log("========================");
+    //}
+
+    //public void DebugPrintNodes()
+    //{
+    //    Debug.Log("=== NODES DEBUG ===");
+    //    foreach (var kvp in nodes)
+    //    {
+    //        Vector3Int pos = kvp.Key;
+    //        TileNode node = kvp.Value;
+    //        Debug.Log(
+    //            $"Node at {pos}: " +
+    //            $"Tile = {node.tile.name}, " +
+    //            $"Value = {node.value}"
+    //        );
+    //    }
+    //    Debug.Log("===================");
+    //}
 
     public void ColorTilesByValue()
     {

@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class EnemyAI : MonoBehaviour
     private List<Vector3Int> currentPath;
     private int currentPathIndex = 0;
     private Tilemap tilemap; // Reference to the Tilemap for position conversion
+
+    public int damage = 1;
+    public float attackRate = 1f;
+
+    private bool isRecalculating = false;
+
+
 
     void Start()
     {
@@ -38,7 +46,7 @@ public class EnemyAI : MonoBehaviour
 
         // Move enemy to the closest node
         transform.position = tilemap.CellToWorld(closestNodePos) + new Vector3(0.5f, 0.5f, 0);
-        Debug.Log($"Snapped enemy to node at: {closestNodePos}");
+        //Debug.Log($"Snapped enemy to node at: {closestNodePos}");
 
         FindNewPath();
     }
@@ -47,8 +55,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (currentPath == null || currentPath.Count == 0)
         {
-            Debug.LogWarning("No path! Recalculating...");
-            FindNewPath();
+            if (!isRecalculating)
+            {
+                isRecalculating = true;
+                Debug.LogWarning("No path! Recalculating...");
+                FindNewPath();
+                isRecalculating = false;
+            }
             return;
         }
 
@@ -64,16 +77,21 @@ public class EnemyAI : MonoBehaviour
             moveSpeed * Time.deltaTime
         );
 
-        if (Vector3.Distance(transform.position, targetWorldPos) < 0.1f)
+
+        if (Vector3.Distance(transform.position, targetWorldPos) < 0.2f)
         {
             currentPathIndex++;
             if (currentPathIndex >= currentPath.Count)
             {
-                Debug.Log("Reached target!");
-                FindNewPath(); // Optional: Loop or stop
+                Debug.Log("You lost!");
+                Destroy(gameObject);
+                SceneManager.LoadScene("Start Menu");
+                return;
             }
         }
     }
+
+
 
     // Call this when the target changes or nodes are updated
     public void FindNewPath()
@@ -96,14 +114,14 @@ public class EnemyAI : MonoBehaviour
         currentPathIndex = 0;
 
         // Debug: Draw the path in the Scene view
-        if (currentPath.Count > 0)
-        {
-            Debug.Log($"Path found with {currentPath.Count} nodes. Total cost: {currentPath.Count}");
-        }
-        else
-        {
-            Debug.LogWarning("No path found!");
-        }
+        //if (currentPath.Count > 0)
+        //{
+        //    Debug.Log($"Path found with {currentPath.Count} nodes. Total cost: {currentPath.Count}");
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("No path found!");
+        //}
     }
 
     // Visualize the path in the Scene view (optional)
